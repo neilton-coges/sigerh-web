@@ -1,6 +1,17 @@
+import 'antd/dist/antd.min.css';
+
+import { GlobalStyle } from './styles/global';
+import { AuthLayout } from './pages/_layout/AuthLayout';
+import { SignIn } from './pages/SignIn';
+
 function App() {
   return (
-    <h1>Hello!</h1>
+    <>
+      <AuthLayout>
+        <SignIn />
+      </AuthLayout>
+      <GlobalStyle />
+    </>
   );
 }
 
