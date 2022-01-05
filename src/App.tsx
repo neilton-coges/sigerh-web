@@ -1,17 +1,16 @@
 import 'antd/dist/antd.min.css';
 
 import { GlobalStyle } from './styles/global';
-import { AuthLayout } from './pages/_layout/AuthLayout';
 import { SignIn } from './pages/SignIn';
+import { Routes } from './routes';
+import { AppProvider } from './contexts';
 
 function App() {
   return (
-    <>
-      <AuthLayout>
-        <SignIn />
-      </AuthLayout>
+    <AppProvider>
+      <Routes />
       <GlobalStyle />
-    </>
+    </AppProvider>
   );
 }
 
