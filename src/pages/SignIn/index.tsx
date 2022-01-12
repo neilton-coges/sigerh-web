@@ -21,7 +21,7 @@ export function SignIn() {
       login,
       senha,
     }).then(() => {
-      navigate('/dash');
+      navigate('/');
     }).finally(() => setLoading(false));
   }, []);
 

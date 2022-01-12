@@ -1,6 +1,7 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
-  Button, Dropdown, Layout, Menu, Space, Typography,
+  Button, Dropdown, Layout, Menu,
 } from 'antd';
 import {
   TeamOutlined,
@@ -20,6 +21,9 @@ interface PrivateLayoutProps {
 }
 
 export function PrivateLayout({ children }: PrivateLayoutProps) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
   const { usuario, signOut } = useAuth();
 
   const handleSignOut = useCallback(() => {
@@ -58,17 +62,16 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={['1']}
         >
           <Menu.SubMenu
             key="sub1"
             title="Recursos Humanos"
             icon={<TeamOutlined />}
           >
-            <Menu.Item key="1">
+            <Menu.Item key="sub1-1">
               Servidores
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="sub1-2">
               Nomeações
             </Menu.Item>
           </Menu.SubMenu>
@@ -77,11 +80,12 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             key="sub2"
             icon={<TableOutlined />}
             title="Tabelas Primárias"
+
           >
-            <Menu.Item key="3">
+            <Menu.Item key="sub2-1">
               Cargos
             </Menu.Item>
-            <Menu.Item key="4">
+            <Menu.Item key="syub2-2" onClick={() => navigate('/cds')}>
               CDS/FG
             </Menu.Item>
           </Menu.SubMenu>
@@ -91,10 +95,10 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             icon={<StarOutlined />}
             title="Extras"
           >
-            <Menu.Item key="5">
+            <Menu.Item key="sub3-1">
               Questionários
             </Menu.Item>
-            <Menu.Item key="6">
+            <Menu.Item key="sub3-2">
               Atualização Cadastral
             </Menu.Item>
           </Menu.SubMenu>
