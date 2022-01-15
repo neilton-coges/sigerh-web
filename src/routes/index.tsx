@@ -18,6 +18,9 @@ import { EditClasseNivelCargo } from '../pages/NiveisCargos/ClassesNiveisCargos/
 import { CreatePadraoClasseNivelCargo } from '../pages/NiveisCargos/ClassesNiveisCargos/PadroesClassesNiveisCargos/Create';
 import { EditPadraoClasseNivelCargo } from '../pages/NiveisCargos/ClassesNiveisCargos/PadroesClassesNiveisCargos/Edit';
 import { CreateReajusteClasseNivelCargo } from '../pages/NiveisCargos/ClassesNiveisCargos/ReajustesClassesNiveisCargos/Create';
+import { ListCargo } from '../pages/Cargos/List';
+import { CreateCargo } from '../pages/Cargos/Create';
+import { EditCargo } from '../pages/Cargos/Edit';
 
 export function Routes() {
   return (
@@ -55,6 +58,19 @@ export function Routes() {
         <Route
           path="/niveis_cargos/:nivelCargoId/classes/:classeNivelCargoId/reajustes/create"
           element={<PrivateRoute component={CreateReajusteClasseNivelCargo} />}
+        />
+
+        <Route
+          path="/cargos"
+          element={<PrivateRoute component={ListCargo} />}
+        />
+        <Route
+          path="/cargos/create"
+          element={<PrivateRoute component={CreateCargo} />}
+        />
+        <Route
+          path="/cargos/:cargoId"
+          element={<PrivateRoute component={EditCargo} />}
         />
       </RoutesDOM>
     </BrowserRouter>

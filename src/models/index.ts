@@ -33,6 +33,13 @@ export type ReajusteClasseNivelCargo = {
   observacao: string;
 }
 
+export type Cargo = {
+  id: string;
+  tipo: string;
+  descricao: string;
+  nivelCargoId: string;
+}
+
 export interface IPage<T> {
   data: T[]; // elements
   perPage: number; // items per page
