@@ -82,7 +82,7 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             title="Tabelas Primárias"
 
           >
-            <Menu.Item key="sub2-1">
+            <Menu.Item key="sub2-1" onClick={() => navigate('/cargos')}>
               Cargos
             </Menu.Item>
 
