@@ -85,7 +85,12 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             <Menu.Item key="sub2-1">
               Cargos
             </Menu.Item>
-            <Menu.Item key="syub2-2" onClick={() => navigate('/cds')}>
+
+            <Menu.Item key="sub2-2" onClick={() => navigate('/niveis_cargos')}>
+              Niveis Cargos
+            </Menu.Item>
+
+            <Menu.Item key="syub2-3" onClick={() => navigate('/cds')}>
               CDS/FG
             </Menu.Item>
           </Menu.SubMenu>

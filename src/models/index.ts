@@ -7,6 +7,32 @@ export type CdsFg = {
   quantidadeNomeados: number;
 }
 
+export type NivelCargo = {
+  id: string;
+  codigo: string;
+  descricao: string;
+}
+
+export type ClasseNivelCargo = {
+  id: string;
+  codigo: string;
+  descricao: string;
+}
+
+export type PadraoClasseNivelCargo = {
+  id: string;
+  codigo: string;
+  descricao: string;
+  valor: number;
+  valorReajustado: number;
+}
+
+export type ReajusteClasseNivelCargo = {
+  id: string;
+  percentual: number;
+  observacao: string;
+}
+
 export interface IPage<T> {
   data: T[]; // elements
   perPage: number; // items per page
