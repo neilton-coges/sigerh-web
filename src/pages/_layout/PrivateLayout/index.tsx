@@ -93,6 +93,10 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             <Menu.Item key="syub2-3" onClick={() => navigate('/cds')}>
               CDS/FG
             </Menu.Item>
+
+            <Menu.Item key="syub2-4" onClick={() => navigate('/jornadas')}>
+              Jornadas
+            </Menu.Item>
           </Menu.SubMenu>
 
           <Menu.SubMenu

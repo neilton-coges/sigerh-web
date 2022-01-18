@@ -40,6 +40,18 @@ export type Cargo = {
   nivelCargoId: string;
 }
 
+export type JornadaHora = {
+  id: string;
+  horaInicio: string;
+  horaFim: string;
+}
+
+export type Jornada = {
+  id: string;
+  nome: string;
+  horas: JornadaHora[];
+}
+
 export interface IPage<T> {
   data: T[]; // elements
   perPage: number; // items per page
