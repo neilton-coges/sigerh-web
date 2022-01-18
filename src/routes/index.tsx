@@ -21,6 +21,9 @@ import { CreateReajusteClasseNivelCargo } from '../pages/NiveisCargos/ClassesNiv
 import { ListCargo } from '../pages/Cargos/List';
 import { CreateCargo } from '../pages/Cargos/Create';
 import { EditCargo } from '../pages/Cargos/Edit';
+import { ListJornada } from '../pages/Jornadas/List';
+import { CreateJornada } from '../pages/Jornadas/Create';
+import { EditJornada } from '../pages/Jornadas/Edit';
 
 export function Routes() {
   return (
@@ -71,6 +74,19 @@ export function Routes() {
         <Route
           path="/cargos/:cargoId"
           element={<PrivateRoute component={EditCargo} />}
+        />
+
+        <Route
+          path="/jornadas"
+          element={<PrivateRoute component={ListJornada} />}
+        />
+        <Route
+          path="/jornadas/create"
+          element={<PrivateRoute component={CreateJornada} />}
+        />
+        <Route
+          path="/jornadas/:jornadaId"
+          element={<PrivateRoute component={EditJornada} />}
         />
       </RoutesDOM>
     </BrowserRouter>
