@@ -52,6 +52,13 @@ export type Jornada = {
   horas: JornadaHora[];
 }
 
+export type Unidade = {
+  id: string;
+  sigla: string;
+  unidadePaiId: string;
+  subUnidades: Unidade[];
+}
+
 export interface IPage<T> {
   data: T[]; // elements
   perPage: number; // items per page

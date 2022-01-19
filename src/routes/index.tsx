@@ -24,6 +24,9 @@ import { EditCargo } from '../pages/Cargos/Edit';
 import { ListJornada } from '../pages/Jornadas/List';
 import { CreateJornada } from '../pages/Jornadas/Create';
 import { EditJornada } from '../pages/Jornadas/Edit';
+import { ListUnidade } from '../pages/Unidades/List';
+import { CreateUnidade } from '../pages/Unidades/Create';
+import { EditUnidade } from '../pages/Unidades/Edit';
 
 export function Routes() {
   return (
@@ -87,6 +90,21 @@ export function Routes() {
         <Route
           path="/jornadas/:jornadaId"
           element={<PrivateRoute component={EditJornada} />}
+        />
+
+        <Route
+          path="/unidades"
+          element={<PrivateRoute component={ListUnidade} />}
+        />
+
+        <Route
+          path="/unidades/create"
+          element={<PrivateRoute component={CreateUnidade} />}
+        />
+
+        <Route
+          path="/unidades/:unidadeId"
+          element={<PrivateRoute component={EditUnidade} />}
         />
       </RoutesDOM>
     </BrowserRouter>

@@ -90,12 +90,16 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
               Niveis Cargos
             </Menu.Item>
 
-            <Menu.Item key="syub2-3" onClick={() => navigate('/cds')}>
+            <Menu.Item key="sub2-3" onClick={() => navigate('/cds')}>
               CDS/FG
             </Menu.Item>
 
-            <Menu.Item key="syub2-4" onClick={() => navigate('/jornadas')}>
+            <Menu.Item key="sub2-4" onClick={() => navigate('/jornadas')}>
               Jornadas
+            </Menu.Item>
+
+            <Menu.Item key="sub2-5" onClick={() => navigate('/unidades')}>
+              Unidades
             </Menu.Item>
           </Menu.SubMenu>
 
