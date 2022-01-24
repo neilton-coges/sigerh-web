@@ -189,7 +189,7 @@ export function CreateJornada() {
         <Form.Item
           required
           label="Descrição"
-          name="nome"
+          name="descricao"
           rules={[{
             required: true, message: 'Informe a descrição.',
           }]}

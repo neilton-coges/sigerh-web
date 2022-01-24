@@ -68,10 +68,10 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             title="Recursos Humanos"
             icon={<TeamOutlined />}
           >
-            <Menu.Item key="sub1-1">
+            <Menu.Item key="sub1-1" onClick={() => navigate('/servidores')}>
               Servidores
             </Menu.Item>
-            <Menu.Item key="sub1-2">
+            <Menu.Item key="sub1-2" onClick={() => navigate('/nomeacoes')}>
               Nomeações
             </Menu.Item>
           </Menu.SubMenu>

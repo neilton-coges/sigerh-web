@@ -27,6 +27,9 @@ import { EditJornada } from '../pages/Jornadas/Edit';
 import { ListUnidade } from '../pages/Unidades/List';
 import { CreateUnidade } from '../pages/Unidades/Create';
 import { EditUnidade } from '../pages/Unidades/Edit';
+import { ListServidor } from '../pages/Servidores/List';
+import { CreateServidor } from '../pages/Servidores/Create';
+import { EditServidor } from '../pages/Servidores/Edit';
 
 export function Routes() {
   return (
@@ -35,13 +38,31 @@ export function Routes() {
         <Route path="/login" element={<SignIn />} />
         <Route path="/" element={<PrivateRoute component={Dashboard} />} />
 
-        <Route path="/cds" element={<PrivateRoute component={ListCdsFg} />} />
-        <Route path="/cds/create" element={<PrivateRoute component={CreateCdsFg} />} />
-        <Route path="/cds/:id" element={<PrivateRoute component={EditCdsFG} />} />
+        <Route
+          path="/cds"
+          element={<PrivateRoute component={ListCdsFg} />}
+        />
+        <Route
+          path="/cds/create"
+          element={<PrivateRoute component={CreateCdsFg} />}
+        />
+        <Route
+          path="/cds/:id"
+          element={<PrivateRoute component={EditCdsFG} />}
+        />
 
-        <Route path="/niveis_cargos" element={<PrivateRoute component={ListNivelCargo} />} />
-        <Route path="/niveis_cargos/create" element={<PrivateRoute component={CreateNivelCargo} />} />
-        <Route path="/niveis_cargos/:nivelCargoId" element={<PrivateRoute component={EditNivelCargo} />} />
+        <Route
+          path="/niveis_cargos"
+          element={<PrivateRoute component={ListNivelCargo} />}
+        />
+        <Route
+          path="/niveis_cargos/create"
+          element={<PrivateRoute component={CreateNivelCargo} />}
+        />
+        <Route
+          path="/niveis_cargos/:nivelCargoId"
+          element={<PrivateRoute component={EditNivelCargo} />}
+        />
 
         <Route
           path="/niveis_cargos/:nivelCargoId/classes/create"
@@ -105,6 +126,21 @@ export function Routes() {
         <Route
           path="/unidades/:unidadeId"
           element={<PrivateRoute component={EditUnidade} />}
+        />
+
+        <Route
+          path="/servidores"
+          element={<PrivateRoute component={ListServidor} />}
+        />
+
+        <Route
+          path="/servidores/create"
+          element={<PrivateRoute component={CreateServidor} />}
+        />
+
+        <Route
+          path="/servidores/:servidorId"
+          element={<PrivateRoute component={EditServidor} />}
         />
       </RoutesDOM>
     </BrowserRouter>

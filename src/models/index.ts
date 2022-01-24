@@ -48,7 +48,7 @@ export type JornadaHora = {
 
 export type Jornada = {
   id: string;
-  nome: string;
+  descricao: string;
   horas: JornadaHora[];
 }
 
@@ -57,6 +57,62 @@ export type Unidade = {
   sigla: string;
   unidadePaiId: string;
   subUnidades: Unidade[];
+}
+
+export type Usuario = {
+  login: string;
+  senha: string;
+  tipo: string;
+  servidorId: string;
+}
+
+export type Servidor = {
+  id: string;
+  nome: string;
+  dataNascimento: string;
+  telefoneCorporativo: string;
+  telefonePessoal: string;
+  emailCorporativo: string;
+  emailPessoal: string;
+  genero: string;
+  tipoSanguineo: string;
+  corRaca: string;
+  nacionalidade: string;
+  naturalidadeCidade: string;
+  naturalidadeEstado: string;
+  estadoCivil: string;
+  conjugeNome: string;
+  conjugeCpf: string;
+  conjugeDataNascimento: string;
+  nomePai: string;
+  nomeMae: string;
+  cpf: string;
+  rgNumero: string;
+  rgOrgaoEmissor: string;
+  rgDataEmissao: string;
+  tituloNumero: string;
+  tituloSecao: string;
+  tituloZona: string;
+  pis: string;
+  usuario: Usuario;
+}
+
+export type Lotacao = {
+  id: string;
+  matricula: string;
+  dataAdmissao: Date;
+  observacao: string;
+  servidorId: string;
+  cargoId: string;
+  cdsFgId: string;
+  unidadeId: string;
+  subUnidadeId: string;
+  jornadaId: string;
+  cargo: Cargo;
+  cdsFg: CdsFg;
+  unidade: Unidade;
+  subUnidade: Unidade;
+  jornada: Jornada;
 }
 
 export interface IPage<T> {
