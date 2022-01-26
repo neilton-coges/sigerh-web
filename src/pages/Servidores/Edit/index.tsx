@@ -100,7 +100,7 @@ export function EditServidor() {
     <>
       <PageHeader
         ghost={false}
-        title="Edoitar Servidor"
+        title="Editar Servidor"
         subTitle="Edição de servidor"
         extra={[
           <Button

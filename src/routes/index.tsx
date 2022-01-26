@@ -30,6 +30,9 @@ import { EditUnidade } from '../pages/Unidades/Edit';
 import { ListServidor } from '../pages/Servidores/List';
 import { CreateServidor } from '../pages/Servidores/Create';
 import { EditServidor } from '../pages/Servidores/Edit';
+import { ListUsuario } from '../pages/Usuarios/List';
+import { CreateUsuario } from '../pages/Usuarios/Create';
+import { EditUsuario } from '../pages/Usuarios/Edit';
 
 export function Routes() {
   return (
@@ -141,6 +144,19 @@ export function Routes() {
         <Route
           path="/servidores/:servidorId"
           element={<PrivateRoute component={EditServidor} />}
+        />
+
+        <Route
+          path="/usuarios"
+          element={<PrivateRoute component={ListUsuario} />}
+        />
+        <Route
+          path="/usuarios/create"
+          element={<PrivateRoute component={CreateUsuario} />}
+        />
+        <Route
+          path="/usuarios/:usuarioId"
+          element={<PrivateRoute component={EditUsuario} />}
         />
       </RoutesDOM>
     </BrowserRouter>

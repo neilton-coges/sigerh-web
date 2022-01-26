@@ -80,7 +80,7 @@ export function ListJornada() {
         dataSource={jornadas}
         pagination={false}
       >
-        <Table.Column width="90%" title="Nome" dataIndex="nome" key="nome" />
+        <Table.Column width="90%" title="Nome" dataIndex="descricao" key="descricao" />
         <Table.Column
           width="10%"
           align="center"
