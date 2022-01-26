@@ -1,13 +1,11 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
   Button, Dropdown, Layout, Menu,
 } from 'antd';
 import {
   TeamOutlined,
   TableOutlined,
-  StarOutlined,
-  UserOutlined,
   LockOutlined,
   LogoutOutlined,
   DownOutlined,
@@ -21,7 +19,6 @@ interface PrivateLayoutProps {
 }
 
 export function PrivateLayout({ children }: PrivateLayoutProps) {
-  const location = useLocation();
   const navigate = useNavigate();
 
   const { usuario, signOut } = useAuth();
@@ -71,7 +68,7 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             <Menu.Item key="sub1-1" onClick={() => navigate('/servidores')}>
               Servidores
             </Menu.Item>
-            <Menu.Item key="sub1-2" onClick={() => navigate('/nomeacoes')}>
+            <Menu.Item key="sub1-2" onClick={() => navigate('/nomeacoes')} disabled>
               Nomeações
             </Menu.Item>
           </Menu.SubMenu>
@@ -105,14 +102,11 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
 
           <Menu.SubMenu
             key="sub3"
-            icon={<StarOutlined />}
-            title="Extras"
+            icon={<LockOutlined />}
+            title="Acesso"
           >
-            <Menu.Item key="sub3-1">
-              Questionários
-            </Menu.Item>
-            <Menu.Item key="sub3-2">
-              Atualização Cadastral
+            <Menu.Item key="sub3-1" onClick={() => navigate('/usuarios')}>
+              Usuários
             </Menu.Item>
           </Menu.SubMenu>
 

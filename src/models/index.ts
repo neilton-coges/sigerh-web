@@ -60,6 +60,7 @@ export type Unidade = {
 }
 
 export type Usuario = {
+  id: string;
   login: string;
   senha: string;
   tipo: string;
@@ -94,7 +95,6 @@ export type Servidor = {
   tituloSecao: string;
   tituloZona: string;
   pis: string;
-  usuario: Usuario;
 }
 
 export type Lotacao = {
