@@ -1,9 +1,10 @@
 import {
-  Button, Card, Form, Input,
+  Button, Card, Form, Input, message,
 } from 'antd';
 import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import ReactInputMask from 'react-input-mask';
 import * as Styled from './styles';
 import { api } from '../../services/api';
 import { useAuth } from '../../hooks/auth';
@@ -21,7 +22,9 @@ export function SignIn() {
       login,
       senha,
     }).then(() => {
-      navigate('/');
+      navigate('/servidores');
+    }).catch((err) => {
+      message.error('Ocorreu um erro ao executar esta ação. Tente novamente');
     }).finally(() => setLoading(false));
   }, []);
 
@@ -42,7 +45,9 @@ export function SignIn() {
             name="login"
             rules={[{ required: true, message: 'Informe seu login.' }]}
           >
-            <Input autoFocus />
+            <ReactInputMask mask="999.999.999-99">
+              {(inputProps: any) => <Input autoFocus {...inputProps} />}
+            </ReactInputMask>
           </Form.Item>
 
           <Form.Item
