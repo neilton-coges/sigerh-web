@@ -126,9 +126,9 @@ export function Lotacoes() {
       >
         <Table.Column width="10%" title="Matricula" dataIndex="matricula" key="matricula" />
         <Table.Column width="20%" title="Cargo" dataIndex="cargo" key="cargo" render={(cargo) => cargo.descricao} />
-        <Table.Column width="20%" title="CDS/FG" dataIndex="cdsFg" key="cdsFg" render={(cdsFg) => cdsFg.simbologia} />
+        <Table.Column width="20%" title="CDS/FG" dataIndex="cdsFg" key="cdsFg" render={(cdsFg) => cdsFg?.simbologia} />
         <Table.Column width="20%" title="Unidade" dataIndex="unidade" key="unidade" render={(unidade) => unidade.sigla} />
-        <Table.Column width="20%" title="Subunidade" dataIndex="subUnidade" key="subUnidade" render={(subUnidade) => subUnidade.sigla} />
+        <Table.Column width="20%" title="Subunidade" dataIndex="subUnidade" key="subUnidade" render={(subUnidade) => subUnidade?.sigla} />
         <Table.Column
           width="10%"
           align="center"

@@ -68,7 +68,7 @@ export function PrivateLayout({ children }: PrivateLayoutProps) {
             <Menu.Item key="sub1-1" onClick={() => navigate('/servidores')}>
               Servidores
             </Menu.Item>
-            <Menu.Item key="sub1-2" onClick={() => navigate('/nomeacoes')} disabled>
+            <Menu.Item key="sub1-2" onClick={() => navigate('/nomeacoes')}>
               Nomeações
             </Menu.Item>
           </Menu.SubMenu>

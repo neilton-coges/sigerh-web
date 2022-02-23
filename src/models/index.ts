@@ -115,6 +115,25 @@ export type Lotacao = {
   jornada: Jornada;
 }
 
+export type Nomeacao = {
+  id: string,
+  createdAt: string,
+  updatedAt: string,
+  tipo: string,
+  cargoId: string,
+  cdsFgId: string,
+  unidadeId: string,
+  servidorId: string,
+  data: string,
+  dataFormatada: string;
+  diofProcesso: string,
+  observacao: string,
+  cargo: Cargo,
+  cdsFg: CdsFg,
+  unidade: Unidade,
+  servidor: Servidor
+}
+
 export interface IPage<T> {
   data: T[]; // elements
   perPage: number; // items per page
