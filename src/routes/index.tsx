@@ -33,6 +33,9 @@ import { EditServidor } from '../pages/Servidores/Edit';
 import { ListUsuario } from '../pages/Usuarios/List';
 import { CreateUsuario } from '../pages/Usuarios/Create';
 import { EditUsuario } from '../pages/Usuarios/Edit';
+import { ListNomeacao } from '../pages/Nomeacoes/List';
+import { CreateNomeacao } from '../pages/Nomeacoes/Create';
+import { EditNomeacao } from '../pages/Nomeacoes/Edit';
 
 export function Routes() {
   return (
@@ -157,6 +160,21 @@ export function Routes() {
         <Route
           path="/usuarios/:usuarioId"
           element={<PrivateRoute component={EditUsuario} />}
+        />
+
+        <Route
+          path="/nomeacoes"
+          element={<PrivateRoute component={ListNomeacao} />}
+        />
+
+        <Route
+          path="/nomeacoes/create"
+          element={<PrivateRoute component={CreateNomeacao} />}
+        />
+
+        <Route
+          path="/nomeacoes/:nomeacaoId"
+          element={<PrivateRoute component={EditNomeacao} />}
         />
       </RoutesDOM>
     </BrowserRouter>
