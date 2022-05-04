@@ -14,6 +14,7 @@ import {
   Space,
   Table,
 } from 'antd';
+import { parse } from 'date-fns';
 
 import { Jornada, Lotacao, Unidade } from '../../../../models';
 import { api } from '../../../../services/api';
@@ -80,7 +81,10 @@ export function Lotacoes() {
       return;
     }
 
-    form.setFieldsValue(lotacao);
+    form.setFieldsValue({
+      ...lotacao,
+      dataAdmissao: lotacao.dataAdmissaoFormatada,
+    });
     setIsModalVisible(true);
   }, [lotacoes, form]);
 
@@ -99,7 +103,7 @@ export function Lotacoes() {
         `/servidores/${params.servidorId}/lotacoes/${id}`,
         {
           matricula,
-          dataAdmissao,
+          dataAdmissao: parse(dataAdmissao, 'dd/MM/yyyy', new Date()),
           jornadaId: jornadaId || null,
           subUnidadeId: subUnidadeId || null,
           observacao,

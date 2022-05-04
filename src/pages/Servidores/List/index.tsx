@@ -1,10 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Button, Col, Input, PageHeader, Row, Form, message, Table, Space, Popconfirm,
+  Button, Col, Input, PageHeader, Row, Form, message, Table, Space, Popconfirm, DatePicker,
 } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import InputMask, { Props as InputMaskProps } from 'react-input-mask';
+import { Moment } from 'moment';
 
 import { IPage, Servidor } from '../../../models';
 import { api } from '../../../services/api';
@@ -12,12 +13,14 @@ import { api } from '../../../services/api';
 type SearchServidoresParams = {
   cpf?: string;
   nome?: string;
+  anoProximaProgressao?: number;
   current?: number;
 }
 
 type HandleSearchParams = {
   cpf: string;
   nome: string;
+  anoProximaProgressao: Moment;
 }
 
 export function ListServidor() {
@@ -55,7 +58,9 @@ export function ListServidor() {
   }, []);
 
   const searchServidores = useCallback(async (
-    { current = 1, cpf, nome }: SearchServidoresParams,
+    {
+      current = 1, cpf, nome, anoProximaProgressao,
+    }: SearchServidoresParams,
   ) => {
     try {
       setSearchLoading(true);
@@ -66,6 +71,7 @@ export function ListServidor() {
           current,
           cpf,
           nome,
+          anoProximaProgressao,
         },
       });
 
@@ -78,11 +84,12 @@ export function ListServidor() {
   }, []);
 
   const handleSearch = useCallback(async (
-    { cpf, nome }: HandleSearchParams,
+    { cpf, nome, anoProximaProgressao }: HandleSearchParams,
   ) => {
     await searchServidores({
       cpf,
       nome,
+      anoProximaProgressao: anoProximaProgressao.year(),
       current: 1,
     });
   }, []);
@@ -124,9 +131,21 @@ export function ListServidor() {
             </Form.Item>
           </Col>
 
-          <Col xs={24} sm={24} md={24} lg={18}>
+          <Col xs={24} sm={24} md={24} lg={12}>
             <Form.Item label="Nome" name="nome">
               <Input />
+            </Form.Item>
+          </Col>
+
+          <Col xs={24} sm={24} md={24} lg={6}>
+            <Form.Item label="Progressão" name="anoProximaProgressao">
+              <DatePicker
+                picker="year"
+                format="YYYY"
+                allowClear
+                style={{ width: '100%' }}
+                placeholder="Selecione o ano"
+              />
             </Form.Item>
           </Col>
         </Row>
@@ -150,7 +169,14 @@ export function ListServidor() {
         }}
       >
         <Table.Column width="30%" title="CPF" dataIndex="cpf" key="cpf" />
-        <Table.Column width="60%" title="Nome" dataIndex="nome" key="nome" />
+        <Table.Column width="40%" title="Nome" dataIndex="nome" key="nome" />
+        <Table.Column
+          width="20%"
+          align="center"
+          title="Próxima progressão"
+          dataIndex="dataProximaProgressaoFormatada"
+          key="dataProximaProgressaoFormatada"
+        />
         <Table.Column
           width="10%"
           align="center"

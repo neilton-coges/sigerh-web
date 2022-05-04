@@ -36,6 +36,9 @@ import { EditUsuario } from '../pages/Usuarios/Edit';
 import { ListNomeacao } from '../pages/Nomeacoes/List';
 import { CreateNomeacao } from '../pages/Nomeacoes/Create';
 import { EditNomeacao } from '../pages/Nomeacoes/Edit';
+import { ListProgressao } from '../pages/Progressoes/List';
+import { CreateProgressao } from '../pages/Progressoes/Create';
+import { EditProgressao } from '../pages/Progressoes/Edit';
 
 export function Routes() {
   return (
@@ -175,6 +178,21 @@ export function Routes() {
         <Route
           path="/nomeacoes/:nomeacaoId"
           element={<PrivateRoute component={EditNomeacao} />}
+        />
+
+        <Route
+          path="/progressoes"
+          element={<PrivateRoute component={ListProgressao} />}
+        />
+
+        <Route
+          path="/progressoes/create"
+          element={<PrivateRoute component={CreateProgressao} />}
+        />
+
+        <Route
+          path="/progressoes/:progressaoId"
+          element={<PrivateRoute component={EditProgressao} />}
         />
       </RoutesDOM>
     </BrowserRouter>
