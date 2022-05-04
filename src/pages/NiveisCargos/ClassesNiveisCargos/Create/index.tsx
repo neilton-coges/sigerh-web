@@ -34,7 +34,7 @@ export function CreateClasseNivelCargo() {
       message.success('Registro criado com sucesso!');
 
       navigate(
-        `/niveis_cargos/${params.nivelCargoId}/classes/${params.classeNivelCargoId}/${response.data.id}`,
+        `/niveis_cargos/${params.nivelCargoId}/classes/${response.data.id}`,
       );
     } catch (error) {
       message.error('Ocorreu um erro ao executar esta ação. Tente novamente');

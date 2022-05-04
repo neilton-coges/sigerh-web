@@ -67,6 +67,27 @@ export type Usuario = {
   servidorId: string;
 }
 
+export type Lotacao = {
+  id: string;
+  matricula: string;
+  dataAdmissao: Date;
+  observacao: string;
+  servidorId: string;
+  cargoId: string;
+  cdsFgId: string;
+  unidadeId: string;
+  subUnidadeId: string;
+  jornadaId: string;
+  cargo: Cargo;
+  cdsFg: CdsFg;
+  unidade: Unidade;
+  subUnidade: Unidade;
+  jornada: Jornada;
+  dataAdmissaoFormatada: string;
+  classeNivelCargo: ClasseNivelCargo;
+  padraoClasseNivelCargo: PadraoClasseNivelCargo;
+}
+
 export type Servidor = {
   id: string;
   nome: string;
@@ -95,24 +116,9 @@ export type Servidor = {
   tituloSecao: string;
   tituloZona: string;
   pis: string;
-}
-
-export type Lotacao = {
-  id: string;
-  matricula: string;
-  dataAdmissao: Date;
-  observacao: string;
-  servidorId: string;
-  cargoId: string;
-  cdsFgId: string;
-  unidadeId: string;
-  subUnidadeId: string;
-  jornadaId: string;
-  cargo: Cargo;
-  cdsFg: CdsFg;
-  unidade: Unidade;
-  subUnidade: Unidade;
-  jornada: Jornada;
+  dataProximaProgressao: Date;
+  dataProximaProgressaoFormatada: string;
+  lotacoes: Lotacao[];
 }
 
 export type Nomeacao = {
@@ -132,6 +138,18 @@ export type Nomeacao = {
   cdsFg: CdsFg,
   unidade: Unidade,
   servidor: Servidor
+}
+
+export type Progressao = {
+  id: string;
+  dataProgressao: Date;
+  dataProgressaoFormatada: string;
+  processo: string;
+  observacao: string;
+  servidor: Servidor;
+  cargo: Cargo;
+  classeNivelCargo: ClasseNivelCargo;
+  padraoClasseNivelCargo: PadraoClasseNivelCargo;
 }
 
 export interface IPage<T> {

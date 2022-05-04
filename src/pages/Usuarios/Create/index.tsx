@@ -106,7 +106,7 @@ export function CreateUsuario() {
           <Select
             showSearch
             optionFilterProp="children"
-            onSelect={(_, option) => handleSelectServidor(String(option.children))}
+            onSelect={(_: any, option: any) => handleSelectServidor(String(option.children))}
           >
             {servidores.map((servidor) => (
               <Select.Option

@@ -118,7 +118,7 @@ export function EditCargo() {
             required: true, message: 'Informe o tipo.',
           }]}
         >
-          <Select onSelect={(value) => handleChangeNivelCargo(value.toString())}>
+          <Select onSelect={(value: string) => handleChangeNivelCargo(value)}>
             <Select.Option value="EFETIVO">Efetivo</Select.Option>
             <Select.Option value="COMISSAO">Comissão</Select.Option>
             <Select.Option value="FUNCAO_GRATIFICADA">Função Gratificada</Select.Option>

@@ -1,14 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-  Button, Col, Form, Input, message, PageHeader, Row, Select, Space, Table,
+  Button, Col, Form, Input, message, PageHeader, Row, Select, Table,
 } from 'antd';
-import { EditOutlined, SearchOutlined } from '@ant-design/icons';
+import { SearchOutlined } from '@ant-design/icons';
 
 import { api } from '../../../services/api';
 import { IPage, Nomeacao } from '../../../models';
 
-type SearchCargosParams = {
+type SearchNomeacoesParams = {
   tipo?: string;
   nomeServidor?: string;
   current?: number;
@@ -31,10 +31,9 @@ export function ListNomeacao() {
 
   const [page, setPage] = useState<IPage<Nomeacao>>({} as IPage<Nomeacao>);
   const [searchLoading, setSearchLoading] = useState(false);
-  const [confirmDeleteLoading, setConfirmDeleteLoading] = useState(false);
 
-  const searchCargos = useCallback(async (
-    { current = 1, tipo, nomeServidor }: SearchCargosParams,
+  const searchNomeacoes = useCallback(async (
+    { current = 1, tipo, nomeServidor }: SearchNomeacoesParams,
   ) => {
     try {
       setSearchLoading(true);
@@ -63,7 +62,7 @@ export function ListNomeacao() {
   const handleSearch = useCallback(async (
     { tipo, nomeServidor }: HandleSearchParams,
   ) => {
-    await searchCargos({
+    await searchNomeacoes({
       tipo,
       nomeServidor,
       current: 1,
@@ -71,7 +70,7 @@ export function ListNomeacao() {
   }, []);
 
   const handlePaginate = useCallback(async (current: number) => {
-    await searchCargos({
+    await searchNomeacoes({
       current,
     });
   }, []);
@@ -80,27 +79,8 @@ export function ListNomeacao() {
     navigate(`/nomeacoes/${id}`);
   }, []);
 
-  const handleDelete = useCallback(async (id: string) => {
-    try {
-      setConfirmDeleteLoading(true);
-
-      await api.delete(`/cargos/${id}`);
-
-      setPage((prevState) => ({
-        ...prevState,
-        data: prevState.data.filter((item) => item.id !== id),
-      }));
-
-      message.success('Registro excluído com sucesso!');
-    } catch (error) {
-      message.error('Ocorreu um erro ao executar esta ação. Tente novamente');
-    } finally {
-      setConfirmDeleteLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
-    searchCargos({ current: 1 });
+    searchNomeacoes({ current: 1 });
   }, []);
 
   return (
